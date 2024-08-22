@@ -10,11 +10,11 @@ const env = process.env.NODE_ENV || 'development';
 const config = require(__dirname + '/../config/config.js')[env];
 const db = {};
 
-let sequelize;
+let sequelize = new Sequelize('postgresql://postgres.wobxjclpfjmuzifqnrfp:backend-api-dripstore@aws-0-sa-east-1.pooler.supabase.com:6543/postgres');;
 if (config.use_env_variable) {
-  sequelize = new Sequelize(process.env[config.use_env_variable], config);
+  sequelize = new Sequelize('postgresql://postgres.wobxjclpfjmuzifqnrfp:backend-api-dripstore@aws-0-sa-east-1.pooler.supabase.com:6543/postgres');
 } else {
-  sequelize = new Sequelize(config.database, config.username, config.password, config);
+  sequelize = new Sequelize('postgresql://postgres.wobxjclpfjmuzifqnrfp:backend-api-dripstore@aws-0-sa-east-1.pooler.supabase.com:6543/postgres');
 }
 
 fs
@@ -37,6 +37,11 @@ Object.keys(db).forEach(modelName => {
     db[modelName].associate(db);
   }
 });
+
+async function SincronizarBanco(){
+  await sequelize.sync()
+}
+SincronizarBanco()
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
