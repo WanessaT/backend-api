@@ -1,26 +1,46 @@
 
-require('dotenv').config();
-
 module.exports = {
+
   development: {
-    username: process.env.DB_USER,
-    password: process.env.DB_PASS,
-    database: process.env.DB_NAME,
-    host: process.env.DB_HOST,
-    dialect: process.env.DB_DIALECT,
-  },
-  test: {
-    username: process.env.DB_USER,
-    password: process.env.DB_PASS,
-    database: process.env.DB_NAME,
-    host: process.env.DB_HOST,
-    dialect: process.env.DB_DIALECT,
+    username: 'postgres.wobxjclpfjmuzifqnrfp', // usuário do banco de dados
+    password: 'backend-api-dripstore', // senha do banco de dados
+    database: 'postgres', // nome do banco de dados
+    host: 'aws-0-sa-east-1.pooler.supabase.com', // host do banco de dados
+    port: 6543, // porta do banco de dados
+    dialect: 'postgres', // tipo de dialeto
+    dialectOptions: {
+      ssl: {
+        require: true, 
+        rejectUnauthorized: false // necessário para conexões SSL com o Supabase
+      }
+    }
   },
   production: {
-    username: process.env.DB_USER,
-    password: process.env.DB_PASS,
-    database: process.env.DB_NAME,
-    host: process.env.DB_HOST,
-    dialect: process.env.DB_DIALECT,
+    username: 'postgres.wobxjclpfjmuzifqnrfp', // usuário do banco de dados
+    password: 'backend-api-dripstore', // senha do banco de dados
+    database: 'postgres', // nome do banco de dados
+    host: 'aws-0-sa-east-1.pooler.supabase.com', // host do banco de dados
+    port: 6543, // porta do banco de dados
+    dialect: 'postgres', // tipo de dialeto
+    dialectOptions: {
+      ssl: {
+        require: true, 
+        rejectUnauthorized: false // necessário para conexões SSL com o Supabase
+      }
+    }
+  },
+  test: {
+    username: 'postgres.wobxjclpfjmuzifqnrfp', // usuário do banco de dados
+    password: 'backend-api-dripstore', // senha do banco de dados
+    database: 'postgres', // nome do banco de dados
+    host: 'aws-0-sa-east-1.pooler.supabase.com', // host do banco de dados
+    port: 6543, // porta do banco de dados
+    dialect: 'postgres', // tipo de dialeto
+    dialectOptions: {
+      ssl: {
+        require: true, 
+        rejectUnauthorized: false // necessário para conexões SSL com o Supabase
+      }
+    }
   }
-}
+};
